@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #000;
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.8) 100%), 
+                        url('https://assets.nflxext.com');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app {
+      background: rgba(0, 0, 0, 0.75);
+      width: 100%;
+      max-width: 450px;
+      padding: 60px;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: left;
+      margin-bottom: 28px;
+      color: #fff;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .input-container {
+      position: relative;
+      width: 100%;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 16px 20px;
+      background: #333;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 16px;
+      box-sizing: border-box;
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    input:focus, textarea:focus {
+      background: #454545;
+      border-bottom: 2px solid #e87c03;
+    }
+
+    button {
+      padding: 16px;
+      border: none;
+      border-radius: 4px;
+      background: #e50914;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #f40612;
+    }
+
+    .status {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #b3b3b3;
+    }
+
+    .offline-indicator {
+      color: #e87c03;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <h2>Sign In & Note</h2>
+
+    <form id="notesForm">
+      <div class="input-container">
+        <input type="text" id="topic" placeholder="Topic Name" required>
+      </div>
+
+      <div class="input-container">
+        <textarea id="notes" placeholder="Your Notes" required></textarea>
+      </div>
+
+      <button type="submit">SAVE OFFLINE</button>
+    </form>
+
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("notesForm");
+    const topicInput = document.getElementById("topic");
+    const notesInput = document.getElementById("notes");
+    const status = document.getElementById("status");
+
+    window.onload = () => {
+      topicInput.value = localStorage.getItem("topic") || "";
+      notesInput.value = localStorage.getItem("notes") || "";
+      updateStatus();
+    };
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      localStorage.setItem("topic", topicInput.value);
+      localStorage.setItem("notes", notesInput.value);
+      status.innerHTML = "Changes saved to local storage ✔";
+    });
+
+    function updateStatus() {
+      if (navigator.onLine) {
+        status.innerHTML = "Connected: Syncing enabled";
+      } else {
+        status.innerHTML = "<span class='offline-indicator'>Offline Mode:</span> Saving to device only.";
+      }
+    }
+
+    window.addEventListener("online", updateStatus);
+    window.addEventListener("offline", updateStatus);
+  </script>
+
+</body>
+</html>

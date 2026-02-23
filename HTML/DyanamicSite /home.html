@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-black {
+            background: black;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+        }
+
+        .btn-blue {
+            background: #0066ff;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background: white;
+            color: #0066ff;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .form-compact {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-compact input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .trusted-by {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .trusted-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            opacity: 0.6;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .nav-link { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <div class="logo">Notion</div>
+            <span class="nav-link">Product</span>
+            <span class="nav-link">AI</span>
+            <span class="nav-link">Solutions</span>
+            <span class="nav-link">Resources</span>
+            <span class="nav-link">Enterprise</span>
+            <span class="nav-link">Pricing</span>
+        </div>
+        <div class="nav-right">
+            <span class="nav-link">Request a demo</span>
+            <span class="nav-link">Log in</span>
+            <button class="btn-black">Get Notion free</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>One workspace. <br> Zero busywork.</h1>
+        <p class="hero-desc">Notion is where your teams and AI agents capture knowledge, find answers, and automate projects. Now a team of 7 feels like 70.</p>
+        
+        <div class="cta-container">
+            <button class="btn-blue">Get Notion free</button>
+            <button class="btn-outline">Request a demo</button>
+        </div>
+
+        <div class="form-compact">
+            <form>
+                <input type="email" placeholder="Enter your email..." required autocomplete="email">
+                <button type="submit" class="btn-black" style="width: 100%;">Sign Up</button>
+            </form>
+        </div>
+
+        <div class="trusted-by">
+            <div class="trusted-text">Trusted by top teams</div>
+            <div class="logos">
+                <span>Figma</span>
+                <span>OpenAI</span>
+                <span>ramp</span>
+                <span>CURSOR</span>
+                <span>Vercel</span>
+                <span>NVIDIA</span>
+                <span>VOLVO</span>
+                <span>perplexity</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Patel | Professional Googler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <header>
+        <div class="profile-container" title="Clicking this does nothing, but it feels good right?">
+            <a href="https://www.linkedin.com/in/gaurav-patel-379687356/">
+                <img src="profile.png" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Gaurav'" alt="Gaurav Patel" class="profile-img">
+            </a>
+        </div>
+        <h1>Gaurav Patel</h1>
+        <p class="subtitle">B.Tech CSE | Turning Ginger Tea into Syntax Errors</p>
+        <div class="badge">Larry Page Cohort | R&D Club Member</div>
+    </header>
+
+    <div class="audio-wrapper">
+        <audio src="untitled-project.mp3" controls loop></audio>
+    </div>
+
+    <div class="container">
+        <div class="grid">
+
+            <div class="card">
+                <h2>About Me</h2>
+                <p>
+                    I am a First Year CSE student. I currently speak Python, C++, and a little bit of sarcasm. 
+                    Passionate about <b>AR Research</b> (making reality less boring) and full-stack development.
+                </p>
+                <p class="fun-fact">Current Status: Trying to center a div.</p>
+            </div>
+
+            <div class="card">
+                <h2>Me in 4K</h2>
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="card">
+                <h2>Tech Stack 🛠️</h2>
+                <div class="skill-container">
+                    <ol>
+                        <li><span class="skill highlight">Python</span> (My main weapon)</li>
+                        <li><span class="skill highlight">C++</span> (For when I feel brave)</li>
+                        <li><span class="skill">JavaScript</span></li>
+                        <li><span class="skill">HTML / CSS</span></li>
+                        <li><span class="skill">Git / GitHub</span> (Ctrl+Z for life)</li>
+                        <li><span class="skill">AppSheet</span></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card" style="grid-column: 1 / -1;">
+                <h2>Stuff I Built</h2>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 20px;">
+                    
+                    <div class="project-item">
+                        <span class="project-title">Binance UI Clone</span>
+                        <p>A frontend replica because I wanted to feel rich without owning crypto. Built with HTML/CSS/JS.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <span class="project-title">ATM Simulation</span>
+                        <p>Console-based Python app. It lets you withdraw infinite money (sadly, only in the simulation).</p>
+                    </div>
+
+                    <div class="project-item">
+                        <span class="project-title">AR Virtual Try-On</span>
+                        <p><b>Research:</b> Using MediaPipe & ARCore so you can try clothes without leaving your gaming chair.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <span class="project-title">Internship App</span>
+                        <p>Evaluation system on Google AppSheet. It judges you silently.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Send Memes</h2>
+                <form>
+                    <label>Your Email</label>
+                    <input type="email" placeholder="elon@tesla.com" required>
+                    
+                    <label>Message</label>
+                    <textarea rows="4" placeholder="Hi Gaurav, I have a job offer with 0 years experience required..." required></textarea>
+                    
+                    <button type="submit" onclick="alert('Message sent! (Not really, this is frontend only 😜)')">Send Message</button>
+                </form>
+                <br>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="https://github.com/gauravpatel14" target="_blank" style="color: var(--primary); text-decoration: none;">GitHub</a>
+                    <a href="https://www.linkedin.com/in/gaurav-patel-379687356/" target="_blank" style="color: var(--primary); text-decoration: none;">LinkedIn</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Gaurav Patel. No bugs were harmed in the making of this site.</p>
+    </footer>
+
+</body>
+</html>

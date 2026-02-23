@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd1dc, #ffc0cb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+canvas {
+  background: radial-gradient(circle at top, #ffe4ec, #ffb6c1);
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
+  border-radius: 20px;
+}
