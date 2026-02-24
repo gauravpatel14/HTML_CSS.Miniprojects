@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Amazon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Amazon Ember', 'Helvetica Neue', sans-serif;
+            background: #eaeded
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        nav {
+            background: #131921;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            gap: 12px;
+            color: #fff
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            border: 1px solid transparent;
+            padding: 4px 8px
+        }
+
+        .logo span {
+            color: #ff9900
+        }
+
+        .logo:hover,
+        .nav-btn:hover {
+            border-color: #fff
+        }
+
+        .deliver {
+            font-size: 12px;
+            color: #ccc;
+            line-height: 1.2
+        }
+
+        .deliver b {
+            font-size: 14px;
+            color: #fff
+        }
+
+        .search {
+            flex: 1;
+            display: flex
+        }
+
+        .search select {
+            background: #f3f3f3;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            padding: 0 8px;
+            font-size: 12px;
+            color: #333;
+            height: 40px
+        }
+
+        .search input {
+            flex: 1;
+            height: 40px;
+            border: none;
+            padding: 0 12px;
+            font-size: 15px
+        }
+
+        .search button {
+            background: #ff9900;
+            border: none;
+            width: 46px;
+            height: 40px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 18px
+        }
+
+        .search button:hover {
+            background: #e47b00
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px
+        }
+
+        .nav-btn {
+            border: 1px solid transparent;
+            padding: 6px 8px;
+            cursor: pointer;
+            border-radius: 2px
+        }
+
+        .nav-btn span {
+            display: block;
+            font-size: 11px;
+            color: #ccc
+        }
+
+        .nav-btn b {
+            font-size: 14px
+        }
+
+        .cart {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+            font-weight: 700
+        }
+
+        .cart-icon {
+            font-size: 28px
+        }
+
+        .sub-nav {
+            background: #232f3e;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            padding: 6px 16px;
+            color: #fff;
+            font-size: 13px
+        }
+
+        .sub-nav a {
+            padding: 5px 10px;
+            border-radius: 2px;
+            white-space: nowrap
+        }
+
+        .sub-nav a:hover {
+            border: 1px solid #fff;
+            padding: 4px 9px
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            height: 400px
+        }
+
+        .hero svg {
+            width: 100%;
+            height: 100%
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 40%, #eaeded 100%)
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            padding: 16px;
+            margin-top: -60px;
+            position: relative
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 4px
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px
+        }
+
+        .card svg {
+            width: 100%;
+            height: 200px
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 12px;
+            color: #007185;
+            font-size: 14px
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+            color: #c7511f
+        }
+
+        .banner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 0 16px 16px
+        }
+
+        .banner-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .banner-item h3 {
+            font-size: 18px;
+            font-weight: 700
+        }
+
+        .banner-item svg {
+            width: 100%;
+            height: 250px
+        }
+
+        .banner-item a {
+            color: #007185;
+            font-size: 14px
+        }
+
+        .banner-item a:hover {
+            text-decoration: underline;
+            color: #c7511f
+        }
+
+        footer {
+            background: #232f3e;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 16px
+        }
+
+        footer a {
+            color: #ddd;
+            margin: 0 8px
+        }
+
+        footer a:hover {
+            text-decoration: underline
+        }
+
+        .foot-top {
+            background: #37475a;
+            text-align: center;
+            padding: 14px;
+            color: #fff;
+            font-size: 13px;
+            cursor: pointer
+        }
+
+        .foot-top:hover {
+            color: #ff9900
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#" class="logo">amazon<span>.in</span></a>
+        <div class="deliver"><span>Deliver to</span><b>India</b></div>
+        <div class="search">
+            <select>
+                <option>All</option>
+                <option>Electronics</option>
+                <option>Books</option>
+                <option>Fashion</option>
+            </select>
+            <input type="text" placeholder="Search Amazon.in">
+            <button>🔍</button>
+        </div>
+        <div class="nav-right">
+            <div class="nav-btn"><span>Hello, sign in</span><b>Account &amp; Lists</b></div>
+            <div class="nav-btn"><span>Returns</span><b>&amp; Orders</b></div>
+            <div class="nav-btn cart"><span class="cart-icon">🛒</span><b>Cart</b></div>
+        </div>
+    </nav>
+    <div class="sub-nav">
+        <a href="#">☰ All</a><a href="#">Today's Deals</a><a href="#">Customer Service</a>
+        <a href="#">Prime</a><a href="#">Gift Cards</a><a href="#">Electronics</a>
+        <a href="#">Fashion</a><a href="#">Books</a><a href="#">Home &amp; Kitchen</a>
+    </div>
+
+    <!-- HERO SVG -->
+    <div class="hero">
+        <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0d1b2a" />
+                    <stop offset="100%" stop-color="#1a3a5c" />
+                </linearGradient>
+                <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+                    <stop offset="0%" stop-color="#ff9900" stop-opacity="0.2" />
+                    <stop offset="100%" stop-color="transparent" />
+                </radialGradient>
+            </defs>
+            <rect width="1200" height="400" fill="url(#hg)" />
+            <rect width="1200" height="400" fill="url(#glow)" />
+            <circle cx="200" cy="120" r="80" fill="#ff9900" opacity="0.07" />
+            <circle cx="1050" cy="300" r="130" fill="#ff9900" opacity="0.05" />
+            <text x="90" y="130" font-family="Georgia,serif" font-size="52" font-weight="bold" fill="#fff">Big Savings
+                Event</text>
+            <rect x="90" y="145" width="460" height="4" rx="2" fill="#ff9900" opacity="0.9" />
+            <text x="90" y="185" font-family="sans-serif" font-size="22" fill="#ccc">Up to 70% off on top brands</text>
+            <rect x="90" y="210" width="170" height="48" rx="24" fill="#ff9900" />
+            <text x="175" y="241" font-family="sans-serif" font-size="16" font-weight="bold" fill="#131921"
+                text-anchor="middle">Shop Now →</text>
+            <rect x="620" y="35" width="510" height="310" rx="16" fill="#1e2f42" opacity="0.65" />
+            <rect x="660" y="70" width="120" height="150" rx="10" fill="#2a4060" />
+            <rect x="670" y="80" width="100" height="130" rx="6" fill="#1a3050" />
+            <circle cx="720" cy="125" r="28" fill="#3a6090" />
+            <rect x="675" y="170" width="90" height="10" rx="5" fill="#ff9900" opacity="0.7" />
+            <rect x="800" y="85" width="100" height="140" rx="10" fill="#2a4060" />
+            <rect x="810" y="95" width="80" height="120" rx="6" fill="#1a3050" />
+            <rect x="816" y="125" width="68" height="55" rx="4" fill="#3a6090" />
+            <rect x="816" y="192" width="68" height="10" rx="5" fill="#ff9900" opacity="0.7" />
+            <rect x="920" y="100" width="80" height="120" rx="8" fill="#2a4060" />
+            <rect x="928" y="108" width="64" height="104" rx="4" fill="#1a3050" />
+            <rect x="934" y="130" width="52" height="50" rx="3" fill="#3a6090" />
+            <text x="650" y="265" font-family="sans-serif" font-size="14" fill="#aaa">Electronics · Fashion ·
+                Home</text>
+            <text x="650" y="296" font-family="sans-serif" font-size="24" font-weight="bold" fill="#fff">Top Picks for
+                You</text>
+            <rect x="650" y="312" width="310" height="3" rx="2" fill="#ff9900" opacity="0.5" />
+        </svg>
+        <div class="hero-overlay"></div>
+    </div>
+
+    <!-- CARDS with SVGs -->
+    <div class="cards">
+        <div class="card">
+            <h3>Electronics</h3>
+            <svg viewBox="0 0 252 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="252" height="200" fill="#e8f4f8" />
+                <rect x="46" y="25" width="160" height="100" rx="10" fill="#1a3a5c" />
+                <rect x="54" y="33" width="144" height="84" rx="6" fill="#4a90d9" />
+                <rect x="62" y="41" width="128" height="68" rx="3" fill="#2c5f8a" />
+                <circle cx="126" cy="75" r="20" fill="#ff9900" opacity="0.85" />
+                <polygon points="120,67 120,83 136,75" fill="#fff" />
+                <rect x="106" y="133" width="40" height="8" rx="4" fill="#1a3a5c" />
+                <rect x="36" y="148" width="180" height="5" rx="3" fill="#ccc" />
+                <rect x="76" y="162" width="100" height="24" rx="12" fill="#ff9900" />
+                <text x="126" y="178" font-family="sans-serif" font-size="12" font-weight="bold" fill="#131921"
+                    text-anchor="middle">Shop Now</text>
+            </svg>
+            <a href="#">Shop now</a>
+        </div>
+        <div class="card">
+            <h3>Fashion Deals</h3>
+            <svg viewBox="0 0 252 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="252" height="200" fill="#fff5f0" />
+                <path d="M88,38 L126,26 L164,38 L176,72 L150,66 L150,168 L102,168 L102,66 L76,72 Z" fill="#c0392b" />
+                <path d="M102,66 L102,100 L150,100 L150,66" fill="#e74c3c" />
+                <circle cx="126" cy="52" r="16" fill="#fcd5c8" />
+                <rect x="108" y="168" width="36" height="18" rx="4" fill="#8e44ad" />
+                <ellipse cx="126" cy="178" rx="18" ry="5" fill="#7d3c98" />
+                <rect x="156" y="34" width="36" height="36" rx="18" fill="#ff9900" opacity="0.25" />
+                <text x="174" y="57" font-family="sans-serif" font-size="12" font-weight="bold" fill="#c0392b"
+                    text-anchor="middle">-40%</text>
+            </svg>
+            <a href="#">Shop now</a>
+        </div>
+        <div class="card">
+            <h3>Home &amp; Kitchen</h3>
+            <svg viewBox="0 0 252 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="252" height="200" fill="#f0f7f0" />
+                <rect x="56" y="96" width="140" height="84" rx="4" fill="#795548" />
+                <polygon points="46,102 126,44 206,102" fill="#a0522d" />
+                <rect x="98" y="128" width="56" height="52" rx="3" fill="#5d4037" />
+                <circle cx="126" cy="112" r="7" fill="#ff9900" />
+                <rect x="66" y="106" width="34" height="34" rx="3" fill="#8d6e63" />
+                <rect x="152" y="106" width="34" height="34" rx="3" fill="#8d6e63" />
+                <rect x="70" y="110" width="26" height="26" rx="2" fill="#b0bec5" opacity="0.45" />
+                <rect x="156" y="110" width="26" height="26" rx="2" fill="#b0bec5" opacity="0.45" />
+            </svg>
+            <a href="#">Shop now</a>
+        </div>
+        <div class="card">
+            <h3>Books</h3>
+            <svg viewBox="0 0 252 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="252" height="200" fill="#fdf6e3" />
+                <rect x="48" y="38" width="68" height="124" rx="4" fill="#e74c3c" transform="rotate(-8,82,100)" />
+                <rect x="52" y="44" width="60" height="112" rx="3" fill="#c0392b" transform="rotate(-8,82,100)" />
+                <rect x="56" y="54" width="52" height="7" rx="3" fill="#fff" opacity="0.6"
+                    transform="rotate(-8,82,100)" />
+                <rect x="56" y="68" width="36" height="4" rx="2" fill="#fff" opacity="0.4"
+                    transform="rotate(-8,82,100)" />
+                <rect x="98" y="32" width="68" height="128" rx="4" fill="#3498db" />
+                <rect x="102" y="36" width="60" height="120" rx="3" fill="#2980b9" />
+                <rect x="108" y="48" width="48" height="8" rx="3" fill="#fff" opacity="0.7" />
+                <rect x="108" y="63" width="34" height="4" rx="2" fill="#fff" opacity="0.5" />
+                <rect x="144" y="42" width="62" height="118" rx="4" fill="#2ecc71" transform="rotate(6,175,101)" />
+                <rect x="148" y="46" width="54" height="110" rx="3" fill="#27ae60" transform="rotate(6,175,101)" />
+                <rect x="154" y="58" width="42" height="7" rx="3" fill="#fff" opacity="0.7"
+                    transform="rotate(6,175,101)" />
+            </svg>
+            <a href="#">Shop now</a>
+        </div>
+    </div>
+
+    <!-- BANNER SVGs -->
+    <div class="banner">
+        <div class="banner-item">
+            <h3>Top Deals on Electronics</h3>
+            <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#0d1b2a" />
+                        <stop offset="100%" stop-color="#1a3a5c" />
+                    </linearGradient>
+                </defs>
+                <rect width="400" height="250" fill="url(#bg2)" />
+                <rect x="18" y="28" width="160" height="105" rx="12" fill="#1e2f42" />
+                <rect x="26" y="36" width="144" height="89" rx="8" fill="#2c5f8a" />
+                <rect x="34" y="44" width="128" height="73" rx="4" fill="#1a3050" />
+                <circle cx="98" cy="80" r="22" fill="#ff9900" opacity="0.25" />
+                <rect x="78" y="148" width="40" height="7" rx="4" fill="#555" />
+                <rect x="60" y="160" width="78" height="5" rx="3" fill="#444" />
+                <rect x="214" y="22" width="82" height="108" rx="10" fill="#1e2f42" />
+                <rect x="222" y="30" width="66" height="92" rx="6" fill="#2c5f8a" />
+                <rect x="228" y="38" width="54" height="76" rx="3" fill="#1a3050" />
+                <circle cx="255" cy="76" r="16" fill="#ff9900" opacity="0.2" />
+                <rect x="310" y="38" width="68" height="86" rx="8" fill="#1e2f42" />
+                <rect x="318" y="46" width="52" height="70" rx="4" fill="#2c5f8a" />
+                <text x="18" y="210" font-family="sans-serif" font-size="24" font-weight="bold" fill="#fff">Up to 60%
+                    Off</text>
+                <text x="18" y="234" font-family="sans-serif" font-size="13" fill="#aaa">Limited time deals on top
+                    gadgets</text>
+                <rect x="288" y="196" width="96" height="34" rx="17" fill="#ff9900" />
+                <text x="336" y="218" font-family="sans-serif" font-size="13" font-weight="bold" fill="#131921"
+                    text-anchor="middle">Shop →</text>
+            </svg>
+            <a href="#">See all deals →</a>
+        </div>
+        <div class="banner-item">
+            <h3>Amazon Prime</h3>
+            <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#0073b1" />
+                        <stop offset="100%" stop-color="#00c2e0" />
+                    </linearGradient>
+                </defs>
+                <rect width="400" height="250" fill="url(#pg)" />
+                <circle cx="200" cy="105" r="75" fill="#005f8e" opacity="0.35" />
+                <polygon points="200,48 244,92 228,145 172,145 156,92" fill="#fff" opacity="0.12" />
+                <text x="200" y="95" font-family="Georgia,serif" font-size="42" font-weight="bold" fill="#fff"
+                    text-anchor="middle">prime</text>
+                <rect x="55" y="112" width="290" height="3" rx="2" fill="#fff" opacity="0.25" />
+                <text x="200" y="146" font-family="sans-serif" font-size="14" fill="#d0f0ff" text-anchor="middle">Free
+                    fast delivery · Movies · Music</text>
+                <circle cx="100" cy="188" r="24" fill="#fff" opacity="0.1" />
+                <text x="100" y="194" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff"
+                    text-anchor="middle">FREE</text>
+                <circle cx="200" cy="188" r="24" fill="#fff" opacity="0.1" />
+                <text x="200" y="194" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff"
+                    text-anchor="middle">FAST</text>
+                <circle cx="300" cy="188" r="24" fill="#fff" opacity="0.1" />
+                <text x="300" y="194" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fff"
+                    text-anchor="middle">VIDEO</text>
+                <rect x="138" y="220" width="124" height="24" rx="12" fill="#ff9900" />
+                <text x="200" y="236" font-family="sans-serif" font-size="13" font-weight="bold" fill="#131921"
+                    text-anchor="middle">Try Prime Free</text>
+            </svg>
+            <a href="#">Try Prime →</a>
+        </div>
+    </div>
+
+    <div class="foot-top">Back to top</div>
+    <footer>
+        <p style="margin-bottom:12px">
+            <a href="#">Conditions of Use</a><a href="#">Privacy Notice</a><a href="#">Interest-Based Ads</a>
+        </p>
+        <p>© 1996–2025, Amazon.com, Inc. or its affiliates</p>
+    </footer>
+</body>
+
+</html>
